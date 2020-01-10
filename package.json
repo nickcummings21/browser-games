@@ -1,0 +1,11 @@
+{
+  "name": "browser-games",
+  "version": "1.0.0",
+  "description": "A set of games for playing in the browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nick Cummings",
+  "license": "ISC"
+}
