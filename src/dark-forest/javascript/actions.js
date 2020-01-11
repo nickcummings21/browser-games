@@ -1,11 +1,13 @@
-const invntCtrl = new InventoryController();
+const BUILD_FIRE_COST = 5;
+const FEED_FIRE_COST = 1;
+const MAX_FIRE = 5;
 
-function gatherFirewood() {
+function gatherWood() {
   addToFeed("You find some twigs nearby.");
 
-  var firewoodQty = invntCtrl.incrementItem("firewood", 1);
-  var isFireLit = invntCtrl.getItemQty("fire-strength") >= 1;
-  if (firewoodQty == BUILD_FIRE_COST && !isFireLit) {
+  const woodQty = inventory.incrementItem("wood", 1);
+  const isFireLit = inventory.getItemQty("fire-strength") >= 1;
+  if (woodQty == BUILD_FIRE_COST && !isFireLit) {
     enableBuildFire();
   }
 }
@@ -18,28 +20,28 @@ function buildFire() {
   addToFeed("You coax a small flame from the dry wood.");
   addToFeed("The fire flickers softly.");
 
-  invntCtrl.addItem("fire-strength", 1);
-  invntCtrl.decrementItem("firewood", BUILD_FIRE_COST);
+  inventory.addItem("fire-strength", 1);
+  inventory.decrementItem("wood", BUILD_FIRE_COST);
 
-  var fireBtn = document.querySelector("#fire-btn");
+  const fireBtn = document.querySelector("#fire-btn");
   fireBtn.innerHTML = "Feed the flames";
   fireBtn.onclick = feedFire;
 }
 
 function feedFire() {
-  var firewood = invntCtrl.getItemQty("firewood");
+  const firewood = inventory.getItemQty("wood");
   if (firewood < FEED_FIRE_COST) {
     addToFeed("Need to find some more wood.");
     return;
   }
 
-  var fireStrength = invntCtrl.getItemQty("fire-strength");
+  const fireStrength = inventory.getItemQty("fire-strength");
   if (fireStrength == MAX_FIRE) {
     addToFeed("The flames blaze brightly.");
     return;
   }
 
   addToFeed("The flames grow stronger.");
-  invntCtrl.incrementItem("fire-strength", 1);
-  invntCtrl.decrementItem("firewood", FEED_FIRE_COST);
+  inventory.incrementItem("fire-strength", 1);
+  inventory.decrementItem("wood", FEED_FIRE_COST);
 }

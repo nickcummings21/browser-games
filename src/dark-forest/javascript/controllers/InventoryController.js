@@ -43,7 +43,7 @@ class InventoryController {
   }
 
   updateItemEl(item) {
-    var qty = this.dao.getItem(item);
+    const qty = this.dao.getItem(item);
     document.querySelector("#" + item).children[1].innerHTML = qty;
   }
 }
