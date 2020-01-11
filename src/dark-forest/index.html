@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>A Dark Forest</title>
-</head>
-<body>
-<div class="title">A DARK FOREST</div>
-<div class="main">
-  <div class="feed">
-    <div class="feed-title">FEED</div>
-    <div class="feed-content">
-      <div class="feed-item">
-        You finish gathering firewood 
-        and decide to start making a fire 
-        with your wood.
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="main.css" />
+
+    <title>A Dark Forest</title>
+  </head>
+  <body>
+    <div class="title">A DARK FOREST</div>
+    <div class="main">
+      <div class="feed">
+        <div class="feed-title">FEED</div>
+        <div class="feed-content">
+          <div class="feed-item">
+            You finish gathering firewood and decide to start making a fire with
+            your wood.
+          </div>
+          <div class="feed-item">
+            You start gathering firewood.
+          </div>
+          <div class="feed-item">
+            You're walking through a dense forest. The sun's going down. You
+            come to a grassy clearing. You decide to make camp.
+          </div>
+        </div>
       </div>
-      <div class="feed-item">
-        You start gathering firewood.
+      <div class="camp">
+        <!-- <div class="btn">Make camp</div> -->
+        <!-- <div class="btn" onclick="gatherFirewood()" >Gather firewood</div> -->
       </div>
-      <div class="feed-item">
-        You're walking through a dense forest. 
-        The sun's going down. 
-        You come to a grassy clearing.
-        You decide to make camp.
+      <div class="inventory">
+        <div class="inventory-title">INVENTORY</div>
+        <div class="inventory-content">
+          <div id="firewood" class="inventory-item">
+            <span>Firewood</span><span>0</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="camp">
-    <div class="btn">Make camp</div>
-    <div class="btn" onclick="gatherFirewood()" >Gather firewood</div>
-    
-  </div>
-  <div class="inventory">
-    <div class="inventory-title">INVENTORY</div>
-    <div class="inventory-content">
-      <div id="firewood" class="inventory-item">
-        <span>Firewood</span><span>0</span>
-      </div>
-    </div>
-  </div>
-</div>
-</body>
+
+    <script src="./javascript/daos/InventoryDao.js"></script>
+    <script src="./javascript/controllers/ActionsController.js"></script>
+    <script src="./javascript/controllers/InventoryController.js"></script>
+    <script src="./javascript/actions.js"></script>
+    <script src="./javascript/utils.js"></script>
+    <script src="./javascript/main.js"></script>
+  </body>
 </html>
