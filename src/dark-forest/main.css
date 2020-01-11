@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    background: #111;
+    color: #fffdf0;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 16px;
+  }
+  
+  .main {
+    max-width: 800px;
+    margin: auto;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 250px auto 200px;
+  }
+  
+  .feed-content, 
+  .camp, 
+  .inventory-content {
+    padding: 16px;
+    height: 450px;
+  }
+  
+  .feed, .inventory, .btn {
+    border: 1px solid #fffdf0;
+  }
+  
+  .feed-content {
+    overflow: auto;
+  }
+  
+  .feed-title {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .feed-item {
+    margin: 12px 0;
+  }
+  
+  .camp {
+    text-align: center;
+  }
+  
+  .inventory {
+    
+  }
+  
+  .inventory-title {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .inventory-content {
+    overflow: auto;
+  }
+  
+  .inventory-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin: 8px;
+  }
+  
+  .btn {
+    margin: 8px;
+    padding: 8px;
+    display: inline-block;
+  }
+  .btn:hover {
+    cursor: pointer;
+    background: #fffdf0;
+    color: #111;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
