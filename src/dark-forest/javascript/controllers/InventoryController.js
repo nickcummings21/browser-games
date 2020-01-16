@@ -4,6 +4,11 @@ class InventoryController {
   }
 
   addItem(item, qty) {
+    const checkQty = this.getItemQty(item);
+    if (checkQty || checkQty == 0) {
+      return;
+    }
+
     this.dao.createItem(item, qty);
 
     var inventoryEl = document.querySelector(".inventory-content");

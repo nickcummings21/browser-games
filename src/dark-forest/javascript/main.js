@@ -4,7 +4,9 @@ const inventory = new InventoryController();
 localStorage.clear();
 
 inventory.addItem("wood", 0);
-actions.addAction("gather-wood", "Gather Wood", gatherWood);
+actions.addAction("gather-wood", "Gather wood", gatherWood, "actions");
+inventory.addItem("rocks", 0);
+actions.addAction("gather-rocks", "Gather rocks", gatherRocks, "actions");
 
 function addToFeed(message) {
   var feedEl = document.querySelector(".feed-content");

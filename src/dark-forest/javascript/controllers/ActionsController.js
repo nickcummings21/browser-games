@@ -3,9 +3,14 @@ class ActionsController {
     this.document = document;
   }
 
-  addAction(actionId, actionText, action) {
-    var campEl = document.querySelector(".camp");
-    var actionBtn = document.createElement("div");
+  addAction(actionId, actionText, action, actionArea) {
+    let actionBtn = document.querySelector("#" + actionId);
+    if (actionBtn) {
+      return;
+    }
+
+    const campEl = document.querySelector("." + actionArea);
+    actionBtn = document.createElement("div");
     actionBtn.id = actionId;
     actionBtn.classList.add("btn");
     actionBtn.innerHTML = actionText;
