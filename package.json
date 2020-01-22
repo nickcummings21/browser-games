@@ -9,6 +9,7 @@
   "author": "Nick Cummings",
   "license": "ISC",
   "dependencies": {
+    "random-int": "^2.0.1",
     "vue": "^2.6.11"
   }
 }

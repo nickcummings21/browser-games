@@ -8,10 +8,12 @@ actions.addAction("gather-wood", "Gather wood", gatherWood, "actions");
 inventory.addItem("rocks", 0);
 actions.addAction("gather-rocks", "Gather rocks", gatherRocks, "actions");
 
-function addToFeed(message) {
-  var feedEl = document.querySelector(".feed-content");
-  var newItem = document.createElement("div");
-  newItem.classList.add("feed-item");
-  newItem.innerHTML = message;
-  feedEl.prepend(newItem);
+let time = 0;
+const mainTimer = async () => {
+  // addToFeed("Time: " + time + "s");
+  time += 1;
+  actions.refreshActions();
+  setTimeout(mainTimer, 1000);
 }
+
+mainTimer();

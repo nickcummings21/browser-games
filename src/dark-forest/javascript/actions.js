@@ -1,10 +1,3 @@
-const BUILD_FIRE_WOOD_COST = 5;
-const BUILD_FIRE_ROCKS_COST = 2;
-const FEED_FIRE_COST = 1;
-const MAX_FIRE = 5;
-
-const CRAFT_POINTY_STICK_COST = 1;
-
 function gatherWood() {
   addToFeed("You find some sticks and twigs nearby.");
 
@@ -23,6 +16,8 @@ function gatherWood() {
   if (isFireLit && rocksQty > 0 && !pointyStickQty && pointyStickQty != 0) {
     enableCraftPointyStick();
   }
+
+  actions.disableAction("gather-wood", GATHER_WOOD_COOLDOWN);
 }
 
 function gatherRocks() {
@@ -43,6 +38,8 @@ function gatherRocks() {
   if (isFireLit && woodQty > 0 && !pointyStickQty && pointyStickQty != 0) {
     enableCraftPointyStick();
   }
+  
+  actions.disableAction("gather-rocks", GATHER_ROCKS_COOLDOWN);
 }
 
 function enableBuildFire() {
@@ -78,6 +75,8 @@ function feedFire() {
   addToFeed("The flames grow stronger.");
   inventory.incrementItem("fire-strength", 1);
   inventory.decrementItem("wood", FEED_FIRE_COST);
+  
+  actions.disableAction("fire-btn", FIRE_COOLDOWN);
 }
 
 function enableCraftPointyStick() {
@@ -112,6 +111,8 @@ function craftPointyStick() {
   if (!animalGutsQty && animalGutsQty != 0) {
     enableGoHunting();
   }
+
+  actions.disableAction("craft-pointy-stick", CRAFT_POINTY_STICK_COOLDOWN);
 }
 
 function enableGoHunting() {
@@ -124,8 +125,60 @@ function enableGoHunting() {
 
 function goHunting() {
   const pointyStickQty = inventory.getItemQty("pointy-sticks");
-  if (pointyStickQty == 0) {
+  if (pointyStickQty <= 0) {
     addToFeed("Can't hunt much with just your bare hands.");
+    return;
   }
-  addToFeed("The forest is silent and empty. You go home empty-handed.");
+
+  let rand = randomInt(100);
+  if (rand < 90) {
+    if (rand < 20) {
+      huntDeer();
+    }
+    else if (rand < 50) {
+      huntRabbit();
+    }
+    else {
+      huntSquirrel();
+    }
+  }
+  else {
+    addToFeed("The forest is silent and empty. You go home empty-handed.");
+  }
+  
+  rand = randomInt(100);
+  if (rand < 50) {
+    breakPointyStick();
+  }
+
+  actions.disableAction("go-hunting", GO_HUNTING_COOLDOWN);
+}
+
+function huntDeer() {
+  addToFeed("You kill a deer.");
+  inventory.incrementItem("animal-guts", 10);
+  inventory.incrementItem("furs", 3);
+  inventory.incrementItem("bones", 5);
+  inventory.incrementItem("meat", 3);
+}
+
+function huntRabbit() {
+  addToFeed("You kill a rabbit.");
+  inventory.incrementItem("animal-guts", 2);
+  inventory.incrementItem("furs", 1);
+  inventory.incrementItem("bones", 1);
+  inventory.incrementItem("meat", 1);
+}
+
+function huntSquirrel() {
+  addToFeed("You kill a squirrel.");
+  inventory.incrementItem("animal-guts", 1);
+  inventory.incrementItem("furs", 1);
+  inventory.incrementItem("bones", 0);
+  inventory.incrementItem("meat", 1);
+}
+
+function breakPointyStick() {
+  addToFeed("You break a pointy stick while hunting.");
+  inventory.decrementItem("pointy-sticks", 1);
 }
