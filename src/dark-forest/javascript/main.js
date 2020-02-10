@@ -3,6 +3,8 @@ const inventory = new InventoryController();
 
 localStorage.clear();
 
+setNormalMode();
+
 inventory.addItem("wood", 0);
 actions.addAction("gather-wood", "Gather wood", gatherWood, "actions");
 inventory.addItem("rocks", 0);

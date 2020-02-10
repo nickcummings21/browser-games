@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script
+      src="https://kit.fontawesome.com/76a3f8818e.js"
+      crossorigin="anonymous"
+    ></script>
 
-    <title>Vue.js App</title>
-</head>
-<body>
+    <link rel="stylesheet" href="main.css" />
 
-    <div id="app">
-        <input type="text" v-on:input="changeTitle" />
-        <p>{{ title }}</p>
-        <p>{{ sayHello() }} <a v-bind:href="link">Google!</a></p>
+    <title>Vue Js Game</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-brand">
+        <i class="fas fa-home" onclick="window.location = 'index.html'"></i>
+      </div>
+      <div class="navbar-title">
+        Text Adventure
+      </div>
     </div>
-    
-    <script src="main.js"></script>
 
-</body>
+    <div class="main" id="app">
+      <div id="prompt" class="prompt hidden"></div>
+      <div id="actions" class="actions">
+        <!-- <div class="action">Run Away</div>
+            <div class="action">Keep Going</div> -->
+        <div class="action" v-on:click.prevent="startStory">Start Story</div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
 </html>

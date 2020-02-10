@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+
+    <title>Vue.js App</title>
+</head>
+<body>
+
+    <div id="app">
+        <input type="text" v-on:input="changeTitle" />
+        <h1 v-once>{{ title }}</h1>
+        <p>{{ sayHello() }} <a v-bind:href="link" target="_blank">Google!</a></p>
+        <p v-html="myLink"></p>
+        <hr>
+        <span>Name:</span><input type="text" v-on:input="changeName" />
+        <br>
+        <span>Age:</span><input type="text" v-on:input="changeAge" />
+        <div>Your name: {{ name }}</div>
+        <div>Your age: {{ age * 3 }}</div>
+        <div>Random #: {{ Math.floor(Math.random() * 100) }}</div>
+        <div>
+            <img style="height:100px;width:100px;" v-bind:src="imgSrc" alt="">
+        </div>
+    </div>
+    
+    <script src="practice.js"></script>
+
+</body>
+</html>

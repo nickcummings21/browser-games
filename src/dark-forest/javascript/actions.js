@@ -5,8 +5,8 @@ function gatherWood() {
   const rocksQty = inventory.getItemQty("rocks");
   const isFireLit = inventory.getItemQty("fire-strength") >= 1;
   if (
-    woodQty == BUILD_FIRE_WOOD_COST &&
-    rocksQty == BUILD_FIRE_ROCKS_COST &&
+    woodQty >= BUILD_FIRE_WOOD_COST &&
+    rocksQty >= BUILD_FIRE_ROCKS_COST &&
     !isFireLit
   ) {
     enableBuildFire();
@@ -27,8 +27,8 @@ function gatherRocks() {
   const woodQty = inventory.getItemQty("wood");
   const isFireLit = inventory.getItemQty("fire-strength") >= 1;
   if (
-    woodQty == BUILD_FIRE_WOOD_COST &&
-    rocksQty == BUILD_FIRE_ROCKS_COST &&
+    woodQty >= BUILD_FIRE_WOOD_COST &&
+    rocksQty >= BUILD_FIRE_ROCKS_COST &&
     !isFireLit
   ) {
     enableBuildFire();
@@ -86,7 +86,7 @@ function enableCraftPointyStick() {
     craftPointyStick,
     "crafting"
   );
-  inventory.addItem("pointy-sticks", 0);
+  inventory.addItem("pointy-sticks", 0, "tool");
 }
 
 function craftPointyStick() {

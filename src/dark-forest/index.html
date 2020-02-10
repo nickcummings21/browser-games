@@ -9,7 +9,16 @@
     <title>A Dark Forest</title>
   </head>
   <body>
-    <div class="title">A DARK FOREST</div>
+    <div class="img-container">
+      <img src="./1bitpack_individuals/row-1-col-29.png" alt="">
+    </div>
+    <div class="title">
+      <img src="./1bitpack_individuals/row-3-col-4.png" alt="">
+      A DARK FOREST
+      <img src="./1bitpack_individuals/row-3-col-4.png" alt="">
+    </div>
+    <div style="text-align: center; cursor: pointer;" onclick="setNormalMode()">Normal mode</div>
+    <div style="text-align: center; cursor: pointer;" onclick="setDevMode()">Dev mode</div>
     <div class="main">
       <div class="feed">
         <div class="feed-title">FEED</div>
@@ -37,13 +46,23 @@
         <!-- <div class="btn">Make camp</div> -->
         <!-- <div class="btn" onclick="gatherFirewood()" >Gather firewood</div> -->
       </div>
-      <div class="inventory">
-        <div class="inventory-title">INVENTORY</div>
-        <div class="inventory-content">
-          <!-- <div id="wood" class="inventory-item">
-            <span>Firewood</span><span>0</span>
-          </div> -->
+      <div class="inventory-container">
+        <div class="inventory">
+          <div class="inventory-title">INVENTORY</div>
+          <div class="inventory-resources">
+            <div style="text-align: center; margin: 32px 0 4px 0;">RESOURCES</div>
+            <!-- <div id="wood" class="inventory-item">
+              <span>Firewood</span><span>0</span>
+            </div> -->
+          </div>
+          <div class="inventory-tools">
+            <div style="text-align: center; margin: 32px 0 4px 0;">TOOLS</div>
+            <!-- <div id="pointy-sticks" class="inventory-item">
+              <span>Pointy sticks</span><span>0</span>
+            </div> -->
+          </div>
         </div>
+        <div class="equipped"></div>
       </div>
     </div>
 

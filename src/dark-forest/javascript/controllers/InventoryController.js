@@ -3,28 +3,36 @@ class InventoryController {
     this.dao = new InventoryDao();
   }
 
-  addItem(item, qty) {
+  addItem(item, qty, type) {
     const checkQty = this.getItemQty(item);
     if (checkQty || checkQty == 0) {
       return;
     }
 
+    if (type == undefined) type = "resource";
+
     this.dao.createItem(item, qty);
 
-    var inventoryEl = document.querySelector(".inventory-content");
-    var newItem = document.createElement("div");
+    const inventoryEl =
+      type === "resource"
+        ? document.querySelector(".inventory-resources")
+        : document.querySelector(".inventory-tools");
+
+    const newItem = document.createElement("div");
     newItem.id = item;
     newItem.classList.add("inventory-item");
 
-    var newItemName = document.createElement("span");
+    const newItemName = document.createElement("span");
     newItemName.innerHTML = caps(item.split("-").join(" "));
     newItem.append(newItemName);
 
-    var newItemQty = document.createElement("span");
+    const newItemQty = document.createElement("span");
     newItemQty.innerHTML = qty;
     newItem.append(newItemQty);
 
-    inventoryEl.append(newItem);
+    item === "fire-strength"
+      ? inventoryEl.children[0].after(newItem)
+      : inventoryEl.append(newItem);
   }
 
   getItemQty(item) {
